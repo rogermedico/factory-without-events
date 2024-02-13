@@ -34,7 +34,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Rogermedico\\FactoryWithoutEvents\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "config": {
