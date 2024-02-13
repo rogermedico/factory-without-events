@@ -1,47 +1,36 @@
-# Docker LAMP environment boilerplate
+# Factory without events
 
-## Container explanation
+![Latest Version on Packagist](https://img.shields.io/packagist/v/rogermedico/factory-without-events)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+![Total Downloads](https://img.shields.io/packagist/dt/rogermedico/factory-without-events)
 
-[Docker compose](https://docs.docker.com/compose/) project that has three services to allow lamp web development with ease. The three images are the following ones:
+---
+This repo can be used to make or create Laravel factories without execution of previously created afterMaking and afterCreating callbacks.
 
- - php:8.1.10-apache
- - mysql
- - phpmyadmin
+## Installation
 
-### PHP
-The php environment is modified by a Dockerfile to update the image, install composer and xdebug. The server is accessible on localhost:8080.
+You can install the package via composer:
 
-### MYSQL
-Just the default image from docker. This image accepts SQL files on initialization that has to be placed into .docker/mysql folder.
+```bash
+composer require rogermedico/factory-without-events
+```
 
-### PHPMYADMIN
-Just the default image from docker linked to MYSQL image. This is accessible on localhost:8081. The default credentials are "root" for the username and "password" for the password. 
+## Usage
 
-## Run Project (local environment)
-All comands to run the project are into a Makefile. The first part of that file are commands to manage the containers. The second part are commands to manage a Laravel app, you can ignore that commands if you are not developing a Laravel app.
+Make your factory as usual and add the WithoutEvents trait to it. Then in your code if you want to make/create a factory without executing afterMake or afterCreate callbacks do it like this:
 
-### Needed commands
+```php
+$user = User::factory()
+    ->withoutEvents()
+    ->create();
+```
 
-Check that you have make, docker and docker-compose installed on your system running the following commands:
-- make -v
-- docker -v
-- docker-compose -v
+## Credits
 
-### Set up steps
+- [Roger Medico](https://github.com/rogermedico)
+- [All Contributors](../../contributors)
 
-1. Download or clone the code in this repository
-2. Execute ``make build`` to build docker containers
-3. Execute ``make run`` to actually run the containers
+## License
 
-### Acces the app
-
-If all the setup steps gone well the url to acces the web server is [localhost:8080](http://localhost:8080) and the url to access the data base (phpMyAdmin) is [localhost:8081](http://localhost:8081).
-
-## Stop Project
-
-To stop the project containers just run the command
-``make stop`` or if you want to remove all stopped containers and networks run ``make down``.
-
-## Author
-
-Roger Medico Piqué - [roger.medico@gmail.com](mailto:roger.medico@gmail.com)
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
