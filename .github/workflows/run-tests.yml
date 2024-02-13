@@ -1,4 +1,4 @@
-name: Factory without events
+name: run-tests
 
 on:
   push:
