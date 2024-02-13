@@ -1,27 +1,16 @@
 <?php
 
-namespace Illuminate\Tests\Database;
+namespace Rogermedico\FactoryWithoutEvents\Tests;
 
-use BadMethodCallException;
-use Carbon\Carbon;
 use Faker\Generator;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Capsule\Manager as DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\CrossJoinSequence;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Rogermedico\FactoryWithoutEvents\FactoryWithoutEvents;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Tests\Database\Fixtures\Models\Money\Price;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use ReflectionClass;
-use Rogermedico\FactoryWithoutEvents\Factory as FactoryWithoutEventsFactory;
 use Rogermedico\FactoryWithoutEvents\WithoutEvents;
 
 class WithoutEventsTest extends TestCase
@@ -29,10 +18,13 @@ class WithoutEventsTest extends TestCase
     protected function setUp(): void
     {
         $container = Container::getInstance();
+
         $container->singleton(Generator::class, function ($app, $parameters) {
             return \Faker\Factory::create('en_US');
         });
+
         $container->instance(Application::class, $app = m::mock(Application::class));
+
         $app->shouldReceive('getNamespace')->andReturn('App\\');
 
         $db = new DB;
@@ -43,6 +35,7 @@ class WithoutEventsTest extends TestCase
         ]);
 
         $db->bootEloquent();
+
         $db->setAsGlobal();
 
         $this->createSchema();
@@ -89,6 +82,7 @@ class WithoutEventsTest extends TestCase
             ->create();
 
         $this->assertArrayNotHasKey('__test.factory.no.events.user.making', $_SERVER);
+
         $this->assertArrayNotHasKey('__test.factory.no.events.user.creating', $_SERVER);
     }
 
