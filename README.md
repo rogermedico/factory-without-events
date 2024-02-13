@@ -1,7 +1,7 @@
 # Factory without events
 
 ![Latest Version on Packagist](https://img.shields.io/packagist/v/rogermedico/factory-without-events)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
+![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rogermedico/factory-without-events/.github%2Fworkflows%2Frun-tests.yml)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 ![Total Downloads](https://img.shields.io/packagist/dt/rogermedico/factory-without-events)
 
