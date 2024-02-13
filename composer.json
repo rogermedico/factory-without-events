@@ -1,0 +1,45 @@
+{
+    "name": "rogermedico/factory-without-events",
+    "description": "Allows to create Laravel factory without the previously defined afterCreating or afterMaking callbacks.",
+    "keywords": [
+        "rogermedico",
+        "laravel",
+        "factory",
+        "aftercreating",
+        "aftermaking"
+    ],
+    "homepage": "https://github.com/rogermedico/factory-without-events",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roger Medico",
+            "email": "roger.medico@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/database": "^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^10.5",
+        "fakerphp/faker": "^1.23",
+        "phpstan/phpstan": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rogermedico\\FactoryWithoutEvents\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rogermedico\\FactoryWithoutEvents\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
